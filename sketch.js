@@ -41,13 +41,13 @@ function spiral(n, theta, color) {
 }
 
 function draw() {
-    theta += 0.0002
+    theta += 0.0005
     background(0, 0, 0, 20)
     translate(width / 2, height / 2)
 
     for (let i = 10; i < 100; i++) {
         // rotate(mouseY / height)
         spiral(i, theta + PI / 2, yellow)
-        spiral(i, theta, yellow)
+        // spiral(i, theta, yellow)
     }
 }
