@@ -12,7 +12,7 @@ const blue = [41, 173, 255]
 let petalradius = 40;
 
 function setup() {
-    createCanvas(displayWidth, displayHeight);
+    createCanvas(windowWidth, windowHeight);
     background(0);
     noStroke()
 }
@@ -36,18 +36,21 @@ function spiral(n, theta, color) {
     let s = map(r, 0, 100, 5, 1)
     ellipse(x, y, s, s)
 
+
     // let r = map(i, 0, 400, 50, 100)
-    leaves(70, r / 10, a / 1000)
+    leaves(70, r / 10 + 40, a / 1000)
 }
 
 function draw() {
-    theta += 0.0005
-    background(0, 0, 0, 20)
+    let spd = map(mouseY, 0, height, 0.00001, 0.0001)
+    theta += spd
+    background(0, 0, 0, 10)
     translate(width / 2, height / 2)
 
-    for (let i = 10; i < 100; i++) {
-        // rotate(mouseY / height)
-        spiral(i, theta + PI / 2, yellow)
+    for (let i = 10; i < 150; i++) {
+        // rotate(mouseX / (10 * width))
+        rotate(mouseY / height)
+        spiral(i * 7, theta + PI / 2, yellow)
         // spiral(i, theta, yellow)
     }
 }
